@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<div class="container mt-5">
+  <h1>Config <%= device.id %>  </h1>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <!-- Makes POST request to /login route -->
+          <form action="/config/<%= device.id %>/submit" method="POST">
+            <div class="form-group">
+              <label for="text">Name</label>
+              <input type="text" class="form-control" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="number">Threshold</label>
+              <input type="number" class="form-control" name="threshold" step="1"/>
+            </div>
+            <button type="submit" class="btn btn-info" name="user" value="<%= device.user %>">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
